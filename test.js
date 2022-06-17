@@ -18,7 +18,41 @@ function janken() {
 
 
 /**  
-Tentukan probabilitas yang akan keluar di tiap value pada array 
+Tentukan berapa presentase di tiap value pada array 
+Gunakan console.log untuk menampilkan outputnya
+
+output:
+15 adalah 
+Musuh : Gunting
+Hasilnya : Kamu menang 
+*/
+priorProbability()
+
+function priorProbability() {
+    let prior = [15, 23, 25, 23, 23, 10, 23, 40, 40, 40]
+    var temp = 0;
+    prior.sort();
+    for (var i = 0; i < prior.length; i++) {
+        if (prior[i + 1] != undefined) {
+            if (prior[i] == prior[i + 1]) {
+                temp += 1
+            } else {
+                temp += 1
+                let result = (temp / prior.length) * 100;
+                console.log(prior[i] + ` is ` + result + `%`);
+                temp = 0;
+            }
+        } else {
+            temp += 1
+            let result = (temp / prior.length) * 100;
+            console.log(prior[i] + ` is ` + result + `%`);
+        }
+    }
+}
+
+/**  
+Ubah hasil yang ditampilkan menjadi hasil lain
+Gunakan console.log untuk menampilkan outputnya
 
 example output
 Kamu : Batu
@@ -26,17 +60,7 @@ Musuh : Gunting
 Hasilnya : Kamu menang 
 */
 
-function priorProbability() {
-    let prior = [15, 23, 25, 23, 23, 10, 23, 40, 40, 40]
-    var temp = [];
-    for (var i = 0; i < prior.length; i++) {
-        if (temp.length != 0) {
-
-            if (prior[i] == temp) {
-                temp.push(i)
-            }
-        } else {
-            temp.push(i)
-        }
-    }
+function scameValue() {
+    let arr = ["point 10000", "point 1000", "referral 5000", "referral 500"]
+    let rand = Math.random() * arr.length;
 }
