@@ -8,8 +8,6 @@ Musuh : Gunting
 Hasilnya : Kamu menang 
 */
 
-hompimpa()
-
 function hompimpa() {
     let arr = ["batu", "gunting", "kertas"];
     let enemy = arr[Math.floor(Math.random * arr.length)];
@@ -67,16 +65,46 @@ function valuePercentage() {
 // }
 
 /**  
-Ubah hasil yang ditampilkan menjadi hasil lain
+Cari nilai Mean, Median, Mode, Min, Max pada array berikut (urutkan terlebih dahulu)
 Gunakan console.log untuk menampilkan outputnya
 
 example output
-Kamu : Batu
-Musuh : Gunting
-Hasilnya : Kamu menang
+Mean is 26.2
+Median is 23
+Mode is 23
+Min is 10
+Max is 40
 */
+aritmatika();
 
-function scameValue() {
-    let arr = ["point 10000", "point 1000", "referral 5000", "referral 500"]
-    let rand = Math.random() * arr.length;
+function aritmatika() {
+    let arrData = [15, 23, 25, 23, 23, 10, 23, 40, 40, 40]
+    arrData.sort();
+
+    let mean = arrData.reduce((a, b) => (a + b)) / arrData.length;
+    console.log(`Mean is ${mean}`);
+
+    let median = (arrData.length % 2 === 0) ? (arrData[arrData.length / 2 - 1] + arrData[arrData.length / 2]) / 2 : arrData[(arrData.length - 1) / 2]
+    console.log(`Median is ${median}`);
+
+    const mode = a =>
+        Object.values(
+            a.reduce((count, e) => {
+                if (!(e in count)) {
+                    count[e] = [0, e];
+                }
+
+                count[e][0]++;
+                return count;
+            }, {})
+        ).reduce((a, v) => v[0] < a[0] ? a : v, [0, null])[1];;
+
+    console.log(`Mode is ${mode(arrData)}`);
+
+    let min = Math.min(...arrData);
+    console.log(`Min is ${min}`);
+
+    let max = Math.max(...arrData);
+    console.log(`Max is ${max}`);
+
 }
